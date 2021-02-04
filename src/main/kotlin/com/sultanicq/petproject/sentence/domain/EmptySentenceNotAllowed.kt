@@ -1,5 +1,3 @@
 package com.sultanicq.petproject.sentence.domain
 
-class EmptySentenceNotAllowed : Throwable() {
-
-}
+class EmptySentenceNotAllowed : Exception("Empty sentence is not allowed")
