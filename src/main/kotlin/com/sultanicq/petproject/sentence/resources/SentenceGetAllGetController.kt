@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-class SentenceGetAllController @Autowired constructor(private val service: SentenceObtainAllService) {
+class SentenceGetAllGetController @Autowired constructor(private val service: SentenceObtainAllService) {
 
     @GetMapping("/api/sentences")
-    fun getAll():ResponseEntity<List<SentenceDTO>> {
+    fun process():ResponseEntity<List<SentenceDTO>> {
         val result = service.execute()
-        val dto = result.map{ SentenceDTO() }
+        val dto = result.map{ SentenceDTO(it.sentence) }
         return ResponseEntity.ok( dto )
     }
 }
